@@ -272,6 +272,17 @@ const getTotalSuppy = async() =>{
     return "Total supply is:" + tolSupply;
 };
 
+const getOwnerBalance = async(owner) =>{
+    let balance = await  contract.methods.balanceof(owner).call();
+    return "Owner balance is:" + balance;
+};
+
+const getDecimals = async() =>{
+    let decimal = await  contract.methods.decimals().call();
+    return "Decimals is:" + decimal;
+};
+
+
 const getSysmbol = async() =>{
     let symbol = await  contract.methods.symbol().call();
     return "Symbol is:" + symbol;
@@ -280,6 +291,8 @@ const getSysmbol = async() =>{
 const ReturnValues = async() => {
     console.log(await getTotalSuppy());
     console.log(await getSysmbol());
+    console.log(await getOwnerBalance(owner));
+    console.log(await getDecimals());
 };
 
 ReturnValues();
