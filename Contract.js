@@ -272,8 +272,14 @@ const getTotalSuppy = async() =>{
     return "Total supply is:" + tolSupply;
 };
 
+const getSysmbol = async() =>{
+    let symbol = await  contract.methods.symbol().call();
+    return "Symbol is:" + symbol;
+};
+
 const ReturnValues = async() => {
     console.log(await getTotalSuppy());
+    console.log(await getSysmbol());
 };
 
 ReturnValues();
