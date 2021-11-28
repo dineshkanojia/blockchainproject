@@ -3,6 +3,10 @@
 
 pragma solidity ^0.8.0;
 
+
+/**
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
 interface IERC20 {
     /**
      * @dev Returns the amount of tokens in existence.
@@ -78,11 +82,6 @@ interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
 
-/**
- * @dev Interface for the optional metadata functions from the ERC20 standard.
- *
- * _Available since v4.1._
- */
 interface IERC20Metadata is IERC20 {
     /**
      * @dev Returns the name of the token.
@@ -119,6 +118,7 @@ abstract contract Context {
         return msg.data;
     }
 }
+
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -167,7 +167,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
-
         _mint(msg.sender, 1000000000000000000);
     }
 
@@ -465,7 +464,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      */
     function _afterTokenTransfer(
         address from,
-        address to,
+        address to,s
         uint256 amount
     ) internal virtual {}
 }

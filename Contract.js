@@ -262,7 +262,7 @@ const abi = [
 ]
 
 //0x2120ed2f35470a9bc50f3d81069fa5ae7256d103
-const address = "0xd4b7be590a6ab7112fcda14f12189eff75b8138c";
+const address = "0x523ed33a88f87d7b01efcaa501e12f867dd63c8c";
 const owner = "0xdC781c6FAb4132727Bf4828095530Bb649A815e6";
 const contract = new web3.eth.Contract(abi, address);
 console.log("Connect to Rospten contract ");
@@ -272,8 +272,13 @@ const getTotalSuppy = async() =>{
     return "Total supply is:" + tolSupply;
 };
 
+const getName = async() =>{
+    let name = await contract.methods.name().call();
+    return "Name is:" + name;
+}
+
 const getOwnerBalance = async(owner) =>{
-    let balance = await  contract.methods.balanceof(owner).call();
+    let balance = await contract.methods.balanceof(owner).call();
     return "Owner balance is:" + balance;
 };
 
@@ -291,8 +296,9 @@ const getSysmbol = async() =>{
 const ReturnValues = async() => {
     console.log(await getTotalSuppy());
     console.log(await getSysmbol());
-    console.log(await getOwnerBalance(owner));
     console.log(await getDecimals());
+    console.log(await getName());
+   // console.log(await getOwnerBalance(owner));
 };
 
 ReturnValues();
