@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dineshkanojia/blockchainproject/issues"
   },
-  "homepage": "https://github.com/dineshkanojia/blockchainproject#readme"
+  "homepage": "https://github.com/dineshkanojia/blockchainproject#readme",
+  "dependencies": {
+    "web3": "^1.6.1"
+  }
 }
