@@ -1,0 +1,19 @@
+{
+  "name": "pkgnodedinesh",
+  "version": "1.0.0",
+  "description": "Blockchain project",
+  "main": "Contract.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dineshkanojia/blockchainproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dineshkanojia/blockchainproject/issues"
+  },
+  "homepage": "https://github.com/dineshkanojia/blockchainproject#readme"
+}
