@@ -7,6 +7,11 @@ console.log("Connected to Web3 APIs");
 
 const abi = [
 	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -55,6 +60,19 @@ const abi = [
 		],
 		"name": "Transfer",
 		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "_totalsupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [
@@ -124,6 +142,45 @@ const abi = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -150,6 +207,19 @@ const abi = [
 			}
 		],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "tokenowner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -192,10 +262,20 @@ const abi = [
 ]
 
 //0x2120ed2f35470a9bc50f3d81069fa5ae7256d103
-const address = "0x2120ed2f35470a9bc50f3d81069fa5ae7256d103";
+const address = "0xd4b7be590a6ab7112fcda14f12189eff75b8138c";
 const owner = "0xdC781c6FAb4132727Bf4828095530Bb649A815e6";
 const contract = new web3.eth.Contract(abi, address);
 console.log("Connect to Rospten contract ");
 
+const getTotalSuppy = async() =>{
+    let tolSupply = await  contract.methods.totalSupply().call();
+    return "Total supply is:" + tolSupply;
+};
+
+const ReturnValues = async() => {
+    console.log(await getTotalSuppy());
+};
+
+ReturnValues();
 
 console.log("hello world");
