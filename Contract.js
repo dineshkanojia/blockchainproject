@@ -1,8 +1,13 @@
 const Web3 = require("web3")
 //https://ropsten.infura.io/v3/9b1b2adebd824132a00a5590400564c7
 
-const rpcURL="https://ropsten.infura.io/v3/9b1b2adebd824132a00a5590400564c7";
+require("dotenv").config();
+
+infuraToken = process.env.INFURA_TOKEN;
+
+const rpcURL="https://ropsten.infura.io/v3/" + infuraToken;
 const web3 = new Web3(rpcURL);   
+
 console.log("Connected to Web3 APIs");
 
 const abi = [
@@ -587,7 +592,7 @@ const ReturnValues = async() => {
     console.log(await getSysmbol());
     console.log(await getDecimals());
     console.log(await getName());
-   console.log(await getOwnerBalance(owner));
+    console.log(await getOwnerBalance(owner));
 };
 
 ReturnValues();
