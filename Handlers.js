@@ -1,5 +1,6 @@
 let contract = require("./Contract.js");
 let method = require("./Method.js");
+let distribute = require("./Distribute.js");
 
 const express = require("express");
 
@@ -21,6 +22,9 @@ app.post('/transfer', async(req,res)=>{
     res.send(await method.transferToken(account_to, amount));
 });
 
+app.get('/distribute', async(req,res)=>{
+    res.send(await distribute.distribute())
+});
 
 app.listen(port, () => console.log("Listening to port: " + port));
 

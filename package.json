@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/dineshkanojia/blockchainproject#readme",
   "dependencies": {
+    "big-number": "^2.0.0",
     "curl": "^0.1.4",
     "dotenv": "^10.0.0",
     "ethereumjs-tx": "^2.1.2",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "web3": "^1.6.1"
   }
 }

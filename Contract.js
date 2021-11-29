@@ -565,28 +565,39 @@ console.log("Connect to Rospten contract ");
 
 const getTotalSuppy = async() =>{
     let tolSupply = await  contract.methods.totalSupply().call();
-    return "Total supply is:" + tolSupply;
+    //return "Total supply is:" + tolSupply;
+	return tolSupply;
 };
 
 const getName = async() =>{
     let name = await contract.methods.name().call();
-    return "Name is:" + name;
+    //return "Name is:" + name;
+	return name;
 }
 
-const getOwnerBalance = async(owner) =>{
+// const getOwnerBalance = async(owner) =>{
+//     let balance = await contract.methods.balanceOf(owner).call();
+//     //return "Owner balance is:" + balance;
+// 	return balance;
+// };
+
+const getBalanceofAccount = async(owner) =>{
     let balance = await contract.methods.balanceOf(owner).call();
-    return "Owner balance is:" + balance;
+    //return "Owner balance is:" + balance;
+	return balance;
 };
 
 const getDecimals = async() =>{
     let decimal = await  contract.methods.decimals().call();
-    return "Decimals is:" + decimal;
+    //return "Decimals is:" + decimal;
+	return decimal;
 };
 
 
 const getSysmbol = async() =>{
     let symbol = await  contract.methods.symbol().call();
-    return "Symbol is:" + symbol;
+    //return "Symbol is:" + symbol;
+	return symbol;
 };
 
 const ReturnValues = async() => {
@@ -594,8 +605,8 @@ const ReturnValues = async() => {
     console.log(await getSysmbol());
     console.log(await getDecimals());
     console.log(await getName());
-    console.log(await getOwnerBalance(owner));
+    console.log(await getBalanceofAccount(owner));
 };
 
 //ReturnValues();
-module.exports= {getSysmbol, getDecimals, getOwnerBalance, getName};
+module.exports= {getSysmbol, getDecimals, getBalanceofAccount, getName};
