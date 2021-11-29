@@ -4,6 +4,8 @@ const Web3 = require("web3")
 require("dotenv").config();
 
 infuraToken = process.env.INFURA_TOKEN;
+contractAddress = process.env.CONTRACT_ADDRESS;
+ownerAddress = process.env.OWNER_ADDRESS;
 
 const rpcURL="https://ropsten.infura.io/v3/" + infuraToken;
 const web3 = new Web3(rpcURL);   
@@ -555,9 +557,9 @@ const abie= [
 		"type": "function"
 	}
 ]
-//0x2120ed2f35470a9bc50f3d81069fa5ae7256d103
-const address = "0xFe9086A12E8d43690A50850930288592fF803fC9";
-const owner = "0xdC781c6FAb4132727Bf4828095530Bb649A815e6";
+
+const address = contractAddress;
+const owner = ownerAddress;
 const contract = new web3.eth.Contract(abie, address);
 console.log("Connect to Rospten contract ");
 
