@@ -44,5 +44,5 @@ const distribute = async()=>{
     // console.log("we have -" + accounts + " in our file" );
 };
 
-distribute();
-//module.exports = {distribute};
+//distribute();
+module.exports = {distribute};
