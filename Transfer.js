@@ -568,16 +568,18 @@ const sendTx = async(raw) => {
     return await web3.eth.sendSignedTransaction(raw);
 };
 
-const transferToken = async(toAccount, amount) => {
+const transferEther = async(toAccount, amount) => {
     let txCount = await web3.eth.getTransactionCount(owner);
     console.log("tx count is:"+ txCount);
 
     const txObject = {
         nonce: web3.utils.toHex(txCount),
-        gasLimit: web3.utils.toHex(500000),
-        gasPrice: web3.utils.toHex( web3.utils.toWei('100', 'gwei')),   
-        to:contractAddress,
-        data: contract.methods.transfer(toAccount, amount).encodeABI()
+        gasLimit: web3.utils.toHex(21000),
+        gasPrice: web3.utils.toHex( web3.utils.toWei('100', 'gwei')),  
+        from:owner, 
+        to:toAccount,
+        //data: contract.methods.transfer(toAccount, amount).encodeABI()
+         value: web3.utils.toHex(web3.utils.toWei(amount, 'ether'))
     };
 
     const tx = new Tx(txObject, {chain: "ropsten", hardfork: "petersburg"});
@@ -598,4 +600,4 @@ const transferToken = async(toAccount, amount) => {
 
 };
 
-transferToken("0x3FE7B46C73fd50E76dF7875199A7B8F61e8B5e44", 12300000000000);
+transferEther("0x3FE7B46C73fd50E76dF7875199A7B8F61e8B5e44", "0.25");
