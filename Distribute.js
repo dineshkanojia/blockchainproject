@@ -1,7 +1,7 @@
 let fs = require("fs");
 let bNumber = require("big-number");
 
-//let method = require("./Method.js");
+let method = require("./Method.js");
 let contract = require("./Contract.js");
 const BigNumber = require("big-number/big-number");
 
@@ -38,6 +38,7 @@ const distribute = async()=>{
     for(let i =0;i< numberofAddresses;i++)
     {
         console.log("about to distribute " + distributionAmount + " " + tokenSymbol + " " + distributionAddress[i]);
+        //let retval = await method.transferToken(distributionAddress[i].replace('\r',''), distributionAmount);
     }
 
     // console.log("we have -" + accounts + " in our file" );
