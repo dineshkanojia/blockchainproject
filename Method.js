@@ -598,4 +598,36 @@ const transferToken = async(toAccount, amount) => {
 
 };
 
-transferToken("0x3FE7B46C73fd50E76dF7875199A7B8F61e8B5e44", 12300000000000);
+// const transferFromTo = async(fromAccount, toAccount, amount) => {
+//     let txCount = await web3.eth.getTransactionCount(owner);
+//     console.log("tx count is:"+ txCount);
+
+//     const txObject = {
+//         nonce: web3.utils.toHex(txCount),
+//         gasLimit: web3.utils.toHex(500000),
+//         gasPrice: web3.utils.toHex( web3.utils.toWei('100', 'gwei')),   
+//         to:contractAddress,
+//         data: contract.methods.transfer(toAccount, amount).encodeABI()
+//     };
+
+//     const tx = new Tx(txObject, {chain: "ropsten", hardfork: "petersburg"});
+
+//     tx.sign(privateKey);
+//     console.log("tx object is:"+ tx);
+
+//     console.log("signed transaction with secret private key");
+
+//     const serializedTx = tx.serialize();
+//     const raw = '0x' + serializedTx.toString("hex");
+
+//     console.log("sending transactions..." + raw);
+//     let txHash = await sendTx(raw);
+
+//     console.log("Transaction Hash: " + txHash.transactionHash);
+//     console.log("Transaction in block: " + txHash.blockNumber);
+
+// };
+
+//transferToken("0x3FE7B46C73fd50E76dF7875199A7B8F61e8B5e44", 12300000000000);
+
+module.exports = {transferToken};

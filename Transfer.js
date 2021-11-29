@@ -578,7 +578,6 @@ const transferEther = async(toAccount, amount) => {
         gasPrice: web3.utils.toHex( web3.utils.toWei('100', 'gwei')),  
         from:owner, 
         to:toAccount,
-        //data: contract.methods.transfer(toAccount, amount).encodeABI()
          value: web3.utils.toHex(web3.utils.toWei(amount, 'ether'))
     };
 

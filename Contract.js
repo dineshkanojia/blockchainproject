@@ -597,6 +597,5 @@ const ReturnValues = async() => {
     console.log(await getOwnerBalance(owner));
 };
 
-ReturnValues();
-
-console.log("hello world");
+//ReturnValues();
+module.exports= {getSysmbol, getDecimals, getOwnerBalance, getName};
