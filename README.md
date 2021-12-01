@@ -4,20 +4,30 @@ This blockchain project need few tools and different software components for bui
 
 # Requried Software tool as follows:
 
-1. Etherium IDE - We have use Remix IDE and use solidity langauge to build and execute blockchain code. Its oline open source tools supports almost all browsers please follow the link. https://remix.ethereum.org/ comprise with in-build complier and deployment features.
+1. Etherium IDE:
+#
+We have use Remix IDE and use solidity langauge to build and execute blockchain code. Its oline open source tools supports almost all browsers please follow the link. https://remix.ethereum.org/ comprise with in-build complier and deployment features.
 
-2.  Metamask - For this project we have use metamask again an open source tools comes with an extention for any mordern browser such as Edge, Firefox, Chrome and so on. Follow link https://metamask.io/download, I have used Edge browser and works like a charm. 
+#
+2.  Metamask
+#
+For this project we have use metamask again an open source tools comes with an extention for any mordern browser such as Edge, Firefox, Chrome and so on. Follow link https://metamask.io/download, I have used Edge browser and works like a charm. 
     
 
     To setup metamask download the extensation and open directly from there itself. By default it comes with Etherum network and also offers Testing network for transactions purpoose. For this project we have use Ropsten network. 
 
     Note: For new verions the test network maybe disable, once can enable by moving the toggle button in setting setion.
 
+#
 
-3.  Github - We need a respository to store source code for add and alteration of project work. Link as follows: https://github.com/, if you already have an account then create a respository and clone it with your working directory. Or Create a new account and follows the mentioned process.
+3.  Github 
+#
+We need a respository to store source code for add and alteration of project work. Link as follows: https://github.com/, if you already have an account then create a respository and clone it with your working directory. Or Create a new account and follows the mentioned process.
 
-
-4. Visual Studio Code - This is again open source IDE used for this project as a editor. Download it from https://code.visualstudio.com/ it suupports almost all the platforms.
+#
+4. Visual Studio Code
+#
+This is again open source IDE used for this project as a editor. Download it from https://code.visualstudio.com/ it suupports almost all the platforms.
 
 
 
@@ -25,14 +35,22 @@ This blockchain project need few tools and different software components for bui
 # Lets get started
 Navigate https://remix.ethereum.org/ online editor using solidity language. To get familiar with solidity please follow https://www.tutorialspoint.com/solidity/index.htm. Using remix create a new file with .sol extention and run basic code using solidity language. Remix provision with in-build compliers and deployment tool.
 
+#
+ 1. Metamask
+ #
+  Lets create an account on metamask, note down passpharse for future reference as this is one time generated and need to access the metamask account. Do not share this passpharse in order to avoid accessing yur account by anonymous users. After successful account creation it will generate account if in an encrypted format one can find on top section on metamask. This ID is used for all your transactions. 
 
- 1. Metamask - Lets create an account on metamask, note down passpharse for future reference as this is one time generated and need to access the metamask account. Do not share this passpharse in order to avoid accessing yur account by anonymous users. After successful account creation it will generate account if in an encrypted format one can find on top section on metamask. This ID is used for all your transactions. 
-
- 2. Metamask with Remix - Copy paste the code writtein NCILabCoin.col on your remix, after adding code for blockchain transaction connect metamask using remix by selecting Injected Web3 option from environment dropdown under Deploy and Run Transaction window appear from left side of the remix.
+#
+ 2. Metamask with Remix
+ #
+ Copy paste the code writtein NCILabCoin.col on your remix, after adding code for blockchain transaction connect metamask using remix by selecting Injected Web3 option from environment dropdown under Deploy and Run Transaction window appear from left side of the remix.
 
     Note: For succesfull connectivity remix and metamask should running on same browser.
 
-3. Connectivity - Once connected successfuly we may added free blockchain amount using encryted id into our account links as follows: 
+#
+3. Connectivity 
+#
+Once connected successfuly we may added free blockchain amount using encryted id into our account links as follows: 
 
     https://faucet.metamask.io/
     
@@ -42,24 +60,155 @@ Navigate https://remix.ethereum.org/ online editor using solidity language. To g
 
     This comes handy for our testing. Transaction history visible on https://etherscan.io/ used the account id or hash transation id.
 
-4. Import tokens - Onces remix generates transaction it also created contract for each transaction for the same. Use the same contract id to import tokens generated by code on metamask with import token options and comtract Id to it.    
+#
+4. Import tokens
+#
+Onces remix generates transaction it also created contract for each transaction for the same. Use the same contract id to import tokens generated by code on metamask with import token options and comtract Id to it.    
 
 
 #
 #  Adding blockchain code to Etherum
 
-Navigate to latest transaction by using contract id on https://etherscan.io/ and under contract tab copy paste all the code which was written in remix and click on submit. After succesful acceptance, a new contract gets generated and use the same transaction code import tokens on metamask.
+Navigate to latest transaction by using contract id on https://etherscan.io/ and under contract tab copy paste all the code which was written in remix and click on submit. After succesful acceptance, a new contract gets generated and use the same transaction code import tokens on metamask. A new token gets uploaded on metamask.
+
+#
+
+# Web3 API.
+
+Web3 api is an open api service used to connect metamask in remix, furthermore, it also come handy to route third party suite used for development.
+
+For this project we are going to use infura API service, this service listen to Web3 APi call and serves the request. https://infura.io/ by following the link register an account and create a project, the project give us the endpoint which help us to route request for our etherum blockchain transactios.
+
+Open infura project, under general tab you will find the endpoints section, choose Ropsten netwrok as since begning on the project we are using ropstend project it wil sync all your transaction using that netwokr.
 
 
+#
 
+# Visual Studio Code
+Open VS code and clone your github respository with your local drive. In VS, you can open source control section, press f5 add your github link then provide local directory location the VS code will clone the project location for you.
 
+# Files in the project:
 
+ # 
+ 1. Contract.Js 
+ #
+ This file contains the basic code to connect remix using web3 api service routed through infura.
 
+First need to install web3 api service using "install web3" command in VS terminal.
 
+Then copy and paste infura enpoints into web3 object.
 
+Create a variable to store respected contract ABI from remix IDE in order to call that contract using javascript.
 
+Create contract object using web3 object and call the remix fuction inside javascript with async call.
 
+/*async and await is used for parallel programing mainly serves multiple request at a same time*/ by default all function in this project using asynchronous api call.   
 
+Once all functions are in place execute the js file with a command on terminal "node Contract.js" the excution should be returning all information. In case of error, you need to review your remix code, contract ABI and infura enpoints.
 
+# 
+2. Method.js 
+#
+ 
+This file contains function to tranfer token from one account to another. 
 
+First step is to create transaction contract using remix code. Deploy the ERC20 code on remix it will generate contract import that contract on metamask it will generate tokens for transactions.  
 
+The required configuration will same as Contract.js file with few addition as follows:
+
+As we are try to have a etherum transaction in order to that we need install "ethereumjs-tx" package using node "ethereumjs-tx" command in terminal.
+    
+For transaction we required a signing using private key, this we can find from metamask by navitagting to Account Details -> Export Private Key this also required your metamask password authentication. Once private key appear copy and pasted on the Method.js file.
+    
+
+Create contract object using ABI of ERC20 code, before making any transactions lets  create the collections object which required to perform transction.
+
+Collection as follows: nonce, gasLimit, gasPrice, to (contract address from remix) data object contains transation information.
+    
+Create an object for transaction TX pass collection object and pass ropsten as network for transaction. Signed the object using privatekey and call sendTx function to initiate a transaction. To confirm transaction verify your metamask account it may have register the transaction details and recipient may have received the transaction amount.
+    
+In case of error please verify all the configuration.
+
+#
+3. Transfer.js
+#
+     
+This files is identical to Method.js the only difference is that in this file we are try to transfer Etherum coins from one account to another. 
+
+Modify transaction object and replace data with value. Please observer that in this file we have use utils library of web3 api service and passing ether as a parameter.
+
+After executing command "node Transfer.js" on terminal, ether coin should get transfer from one account to another. To verify on own and recipient's metamask account.
+
+#
+4. Distribute.js 
+#
+ The code in this will execute the transaction of 5% amount and distribute them into 10 different accounts.
+    
+In order to do that, it required supporting functions from Contract.js and Method.js. 
+    
+Before that lets convert Contract and Method.js file in to modules. To read a file from the project required fs package. Execute command "node fs" inside terminal.
+    
+It also required Big-number package for long numbers calculation. use command "node big-number" the required package get added to the project.
+
+The 10 different account ids are placed inside account.txt, first, need to import contract and method files into this file. 
+
+First, fetch all 10 transaction id loop through it and use contract and method object distribute the 5% amount into 10 different accounts.
+
+Lets convert all these functions into API service so that it can be consume by any frontend application.
+
+#
+5. Handlers.js 
+#
+
+This file will expose api to outside world to execute our bockchain code.
+
+First, lets import contract, method amd distribute file to expose api it needs express package, so on terminal execute "node express" this will add supporting library.
+
+Using express library decide the port and format of blockchain api respose. 
+
+Get api is used fetch information from any respected files to call api execute below command. Note - Linux and windows system have own set of command.
+Linux: curl -XGET "http:\\location:portnumber\apiname"
+
+Windows: curl "http:\\location:portnumber"\apiname
+
+To exeucte api service we may use postman as well.
+
+Post api request call required few data to be provided and based on that it will return the response execute below post comamnd in terminal
+
+curl -d '{account_to=x0...., amount=1234}' -H 'Content-Type: application/json' http:\\location:portnumber\apiname
+
+# 
+6. DockerFile
+#
+
+We can deploy our blockchain code using docker. First, need to install docker from https://www.docker.com/products/docker-desktop and create a account for the same.
+
+If docker is already install, it is recommended to update docker with latest version.
+
+Docker code as follows:
+FROM node12 - docker need a database type to build and run application on docker.
+
+WORKDIR - using this we can set out working directory inside docker.
+
+COPY package*.json ./ - this command will download required packages for the project.
+
+RUN npm instal - this install node on docker which needed to build project.
+
+COPY . . - this command copy all required files into docker.
+
+EXPOSE 8080 - this command set the port to access poject's api to expose to outside world.
+
+CMD {"node", "Distribute.js"} - this command act as starting point of the project for execution.
+
+Lets build project into docker. 
+Note: The below command is used for Linux OS systems.
+
+To Build: docker build -t nci/blockchain . this command create build with name nci and blockchain directory inside working directory of docker.
+
+To Run: docker run -p 8080 --name nci -d nci/blockchain 
+
+To Log: docker logs[name]
+
+Start / Stop : docker start/stop [name]
+
+To Kill: docker kill [name]

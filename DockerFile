@@ -8,6 +8,6 @@ RUN npm instal
 
 COPY . .
 
-EXPOSE 8090
+EXPOSE 8080
 
 CMD {"node", "Distribute.js"}
