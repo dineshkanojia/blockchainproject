@@ -38,11 +38,11 @@ const distribute = async()=>{
     for(let i =0;i< numberofAddresses;i++)
     {
         console.log("about to distribute " + distributionAmount + " " + tokenSymbol + " " + distributionAddress[i]);
-        //let retval = await method.transferToken(distributionAddress[i].replace('\r',''), distributionAmount);
+        let retval = await method.transferToken(distributionAddress[i].replace('\r',''), distributionAmount);
     }
 
     // console.log("we have -" + accounts + " in our file" );
 };
 
-//distribute();
-module.exports = {distribute};
+distribute();
+//module.exports = {distribute};

@@ -201,11 +201,26 @@ EXPOSE 8080 - this command set the port to access poject's api to expose to outs
 CMD {"node", "Distribute.js"} - this command act as starting point of the project for execution.
 
 Lets build project into docker. 
-Note: The below command is used for Linux OS systems.
+docker build . -t nci/blockchain-web-app
 
 To Build: docker build -t nci/blockchain . this command create build with name nci and blockchain directory inside working directory of docker.
 
-To Run: docker run -p 8080 --name nci -d nci/blockchain 
+### Docker Image ###
+docker image ls
+
+### Mapped and Run Docker port ###
+docker run -p 8090:8080 --name nci -d nci/blockchain 
+
+### Remove Docker Images
+docker image prune -a -f
+
+### Tag Docker Image
+docker tag nci/blockchain dineshdockers/blockchain:blockchain
+
+### Push docker image to docker hub
+docker push dineshdockers/blockchain:blockchain
+
+
 
 To Log: docker logs[name]
 
